@@ -70,6 +70,7 @@ button {
 button {
   white-space: normal;
   overflow-wrap: anywhere;
+  cursor: pointer;
 }
 
 .section-header {
