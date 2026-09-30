@@ -105,3 +105,15 @@ accountForms.forEach((form) => {
       : "Account creation is unavailable: no authentication backend is configured. No account has been created.";
   });
 });
+function toggleVisibility(element) {
+  const  = document.getElementById(element);
+  
+ function toggleVisibility(elementId) {
+  const group = document.getElementById(elementId);
+  if (!group) return;
+  if (group.style.display === 'none') {
+    group.style.display = 'block'; // Show group
+  } else {
+    group.style.display = 'none';  // Hide group
+  }
+}ty(user_in)
