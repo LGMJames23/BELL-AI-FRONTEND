@@ -27,5 +27,20 @@
     grid-template-columns: 1fr
   }
 }
-.section-main-section{
-border-radius
+.section-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.section-header {
+  border-bottom: 1px solid var(--color-text-muted);
+  padding-bottom: var(--spacing-sm);
+}
+
+.section-body {
+  flex: 1; /* Expand to fill remaining vertical space */
+}
