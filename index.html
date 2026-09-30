@@ -12,8 +12,8 @@
       <section id="main-section" class="app-container">
         <aside class="sidebar-panel section-card" id="sidebar">
           <h2>SETTINGS, HISTORY, AND INFO</h2>
-          <p>Time: </p>
-          <p>Weather: </p>
+          <p>Time: XX:XX</p>
+          <p>Weather: XX°</p>
         </aside>
         <div class="section-card">
           <header id="top-sctn">
@@ -35,8 +35,7 @@
                 <p id="account-answer-feedback" role="alert"></p>
               </form>
             </div>
-            <p>Account creation and credential verification are unavailable until an authentication backend is configured.</p>
-            <form id="login-form" aria-labelledby="login-heading" hidden novalidate>
+              <form id="login-form" aria-labelledby="login-heading" hidden novalidate>
               <h2 id="login-heading">>Bell: Welcome back, please Log in</h2>
               <label for="login-username">Username</label>
               <input id="login-username" name="username" type="text" autocomplete="username" aria-describedby="login-feedback" required />
@@ -58,7 +57,7 @@
             </form>
           </section>
           <div id="user-in-div" class="text-box">
-            <p id="bell-out">Bell:</p>
+          <h2 id="bell-out">Bell:</h2>
           <label for="user-in">Talk to Bell</label>
           <input id="user-in" type="text" placeholder="Talk to Bell" disabled />
           </div>
