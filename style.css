@@ -61,7 +61,9 @@ body {
 input,
 select,
 textarea,
-button {
+button,
+input[type="submit"],
+input[type="button"]{
   min-width: 0;
   max-width: 100%;
   cursor: pointer;
@@ -69,6 +71,7 @@ button {
   background-color: #41a1fa;
   border: 1px solid #ffffff;
   transition: background-color 0.3s ease;
+  #41a1fa
 }
 
 .section-header {
