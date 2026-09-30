@@ -3,8 +3,8 @@
   --color-bg: #0f172a;
   --color-surface: #1e293b;
   --color-primary: #3d9160;
-  --color-text: #f8fafc;
-  --color-text-muted: #94a3b8;
+  --color-text: #ffffff;
+  --color-text-muted: #ffffff;
 
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'Fira Code', monospace;
@@ -67,8 +67,7 @@ button {
   cursor: pointer;
   white-space
   background-color: #41a1fa;
-  color: #ffffff
-  border: 1px solid;
+  border: 1px solid #ffffff;
   transition: background-color 0.3s ease;
 }
 
