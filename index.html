@@ -21,15 +21,15 @@
           </header>
           <section id="welcome-section" aria-label="Welcome">
             <p id="welcome-text"><strong>Welcome!</strong></p>
-            <p>Hi I'm Bell, your own AI assistant</p>
+            <p>Bell: Hi I'm Bell, your own AI assistant</p>
           </section>
           <section id="login-sctn" aria-label="Account access">
             <div id="account-question">
-              <h2 id="account-question-heading">Do you have an account?</h2>
+              <p id="account-question-heading">>Bell: Do you have an account?</p>
               <button id="login-btn" type="button" aria-controls="login-form">Yes</button>
               <button id="register-btn" type="button" aria-controls="register-form">No</button>
               <form id="account-answer-form" aria-labelledby="account-question-heading" novalidate>
-                <label for="account-answer">Your answer (y, yes, n, or no)</label>
+                <label for="account-answer">>Talk to Bell</label>
                 <input id="account-answer" name="answer" type="text" aria-describedby="account-answer-feedback" required />
                 <button type="submit">Continue</button>
                 <p id="account-answer-feedback" role="alert"></p>
@@ -37,7 +37,7 @@
             </div>
             <p>Account creation and credential verification are unavailable until an authentication backend is configured.</p>
             <form id="login-form" aria-labelledby="login-heading" hidden novalidate>
-              <h2 id="login-heading">Welcome back, please Log in</h2>
+              <h2 id="login-heading">>Bell: Welcome back, please Log in</h2>
               <label for="login-username">Username</label>
               <input id="login-username" name="username" type="text" autocomplete="username" aria-describedby="login-feedback" required />
               <label for="login-password">Password</label>
@@ -58,9 +58,11 @@
             </form>
           </section>
           <p id="bell-out">Bell:</p>
+          <div id="user-in-div" class="text-box">
           <label for="user-in">Talk to Bell</label>
           <input id="user-in" type="text" placeholder="Talk to Bell" disabled />
-        </div>
+          </div>
+         </div>
       </section>
     </main>
   </body>
