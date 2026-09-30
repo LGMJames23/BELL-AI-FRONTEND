@@ -67,6 +67,7 @@ button {
   cursor: pointer;
   background-color: #41a1fa;
   border: 1px solid;
+  transition: background-color 0.3s ease;
 }
 
 button {
@@ -84,4 +85,7 @@ button {
 
 .section-body {
   flex: 1; /* Expand to fill remaining vertical space */
+}
+.button:hover{
+background-color: #0504aa;
 }
