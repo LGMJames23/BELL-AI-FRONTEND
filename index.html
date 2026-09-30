@@ -1,44 +1,53 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bell-AI</title>
+    <script src="main.js" defer></script>
   </head>
   <body>
-    <screen id="home-screen"
+    <main id="home-screen">
       <section id="main-section">
-        <section id="top-sctn">
-          <section id="header-sctn">
-    <h1>BellAI</h1>
-          </section>
-          <section id="login-sctn">
-          <button id="login-btn" ariatext="log in"
-          </section>
+        <header id="top-sctn">
+          <h1>BellAI</h1>
+        </header>
+        <section id="welcome-section" aria-label="Welcome">
+          <p id="welcome-text"><strong>Welcome!</strong></p>
+          <p>Hi, I'm Bell! I am your personal smart assistant!</p>
         </section>
-    <section id="welcome-section">
-    <p1 id="welcome-text">
-		<strong>
-		Welcome, 
-    </strong>
-	</p1>
-    <script>
-      const name
-		let opening_txt = "Hi, I'm Bell! \n I am your personal smart assistant! \n Do you have an account?"
-if(login==true){
-	document.getElementById("user-in")
-opening_txt = "Welcome back, "
-}
-    </script>
-    </section>
-	  <p2 id="bell-out">
-		  Bell: 
-	  </p2>
-	  <label for="user-in">Talk to Bell</label>
-	  <input id="user-in" type="text" disabled="enabled">
-      talk to Bell
-  </input>
-  </section>
-  </screen>
-  <screen>
-	  <br />
+        <section id="login-sctn" aria-label="Account access">
+          <div id="account-question">
+            <h2>Do you have an account?</h2>
+            <button id="login-btn" type="button" aria-controls="login-form">Yes</button>
+            <button id="register-btn" type="button" aria-controls="register-form">No</button>
+          </div>
+          <p>Account creation and credential verification are unavailable until an authentication backend is configured.</p>
+          <form id="login-form" aria-labelledby="login-heading" hidden novalidate>
+            <h2 id="login-heading">Log in</h2>
+            <label for="login-username">Username</label>
+            <input id="login-username" name="username" type="text" autocomplete="username" aria-describedby="login-feedback" required />
+            <label for="login-password">Password</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" aria-describedby="login-feedback" required />
+            <button type="submit">Log in</button>
+            <button type="button" data-account-back>Back to account question</button>
+            <p id="login-feedback" role="alert"></p>
+          </form>
+          <form id="register-form" aria-labelledby="register-heading" hidden novalidate>
+            <h2 id="register-heading">Register</h2>
+            <label for="register-username">Username</label>
+            <input id="register-username" name="username" type="text" autocomplete="username" aria-describedby="register-feedback" required />
+            <label for="register-password">Password</label>
+            <input id="register-password" name="password" type="password" autocomplete="new-password" aria-describedby="register-feedback" required />
+            <button type="submit">Register</button>
+            <button type="button" data-account-back>Back to account question</button>
+            <p id="register-feedback" role="alert"></p>
+          </form>
+        </section>
+        <p id="bell-out">Bell:</p>
+        <label for="user-in">Talk to Bell</label>
+        <input id="user-in" type="text" placeholder="Talk to Bell" disabled />
+      </section>
+    </main>
   </body>
 </html>
