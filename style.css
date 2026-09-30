@@ -1,1 +1,31 @@
+/* styles/base/variables.css */
+:root {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-primary: #6366f1;
+  --color-text: #f8fafc;
+  --color-text-muted: #94a3b8;
 
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  
+  --spacing-sm: 0.5rem;   /* 8px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --radius-md: 0.5rem;
+}
+.app-container {
+  display: grid; /* creates grid */
+  grid-template: 2fr 1fr 300px; /* makes the 2 equal columns and sidebar */
+  gap: var (--spacing-md);
+  margin: 1 auto;
+  padding: var(--spacing-md);
+}
+
+@media(max-width: 1024px){
+  .app-container{
+    grid-template-columns: 1fr
+  }
+}
+.section-main-section{
+border-radius
