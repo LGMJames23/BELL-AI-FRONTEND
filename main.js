@@ -1,6 +1,9 @@
 const accountQuestion = document.getElementById("account-question");
 const loginButton = document.getElementById("login-btn");
 const registerButton = document.getElementById("register-btn");
+const accountAnswerForm = document.getElementById("account-answer-form");
+const accountAnswer = document.getElementById("account-answer");
+const accountAnswerFeedback = document.getElementById("account-answer-feedback");
 const loginForm = document.getElementById("login-form");
 const registerForm = document.getElementById("register-form");
 const accountForms = [loginForm, registerForm];
@@ -19,6 +22,9 @@ function resetForms() {
 
 function showForm(form, choice) {
   resetForms();
+  accountAnswerForm.reset();
+  accountAnswerFeedback.textContent = "";
+  accountAnswer.removeAttribute("aria-invalid");
   lastChoice = choice;
   accountQuestion.hidden = true;
   form.hidden = false;
@@ -31,6 +37,26 @@ loginButton.addEventListener("click", () => {
 
 registerButton.addEventListener("click", () => {
   showForm(registerForm, registerButton);
+});
+
+accountAnswerForm.addEventListener("input", () => {
+  accountAnswerFeedback.textContent = "";
+  accountAnswer.removeAttribute("aria-invalid");
+});
+
+accountAnswerForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const answer = accountAnswer.value.trim().toLowerCase();
+
+  if (answer === "y" || answer === "yes") {
+    showForm(loginForm, accountAnswer);
+  } else if (answer === "n" || answer === "no") {
+    showForm(registerForm, accountAnswer);
+  } else {
+    accountAnswer.setAttribute("aria-invalid", "true");
+    accountAnswerFeedback.textContent = "Please answer y or yes for login, or n or no for registration.";
+    accountAnswer.focus();
+  }
 });
 
 document.querySelectorAll("[data-account-back]").forEach((button) => {
