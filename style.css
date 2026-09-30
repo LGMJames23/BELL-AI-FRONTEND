@@ -65,6 +65,7 @@ button {
   min-width: 0;
   max-width: 100%;
   cursor: pointer;
+  white-space
   background-color: #41a1fa;
   border: 1px solid;
   transition: background-color 0.3s ease;
