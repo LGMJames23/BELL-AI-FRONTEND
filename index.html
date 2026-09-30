@@ -9,55 +9,58 @@
   </head>
   <body>
     <main id="home-screen">
-      <section id="main-section">
-        <aside class="sidebar-panel" id="sidebar">
-          <h>SETTINGS, HISTORY, AND INFO</h>
+      <section id="main-section" class="app-container">
+        <aside class="sidebar-panel section-card" id="sidebar">
+          <h2>SETTINGS, HISTORY, AND INFO</h2>
           <p>Time: </p>
           <p>Weather: </p>
-        <header id="top-sctn">
-          <h1>BellAI</h1>
-        </header>
-        <section id="welcome-section" aria-label="Welcome">
-          <p id="welcome-text"><strong>Welcome!</strong></p>
-          <p>Hi I'm Bell, your own AI assistant</p>
-        </section>
-        <section id="login-sctn" aria-label="Account access">
-          <div id="account-question">
-            <h2 id="account-question-heading">Do you have an account?</h2>
-            <button id="login-btn" type="button" aria-controls="login-form">Yes</button>
-            <button id="register-btn" type="button" aria-controls="register-form">No</button>
-            <form id="account-answer-form" aria-labelledby="account-question-heading" novalidate>
-              <label for="account-answer">Your answer (y, yes, n, or no)</label>
-              <input id="account-answer" name="answer" type="text" aria-describedby="account-answer-feedback" required />
-              <button type="submit">Continue</button>
-              <p id="account-answer-feedback" role="alert"></p>
+        </aside>
+        <div class="section-card">
+          <header id="top-sctn">
+            <h1>BellAI</h1>
+          </header>
+          <section id="welcome-section" aria-label="Welcome">
+            <p id="welcome-text"><strong>Welcome!</strong></p>
+            <p>Hi I'm Bell, your own AI assistant</p>
+          </section>
+          <section id="login-sctn" aria-label="Account access">
+            <div id="account-question">
+              <h2 id="account-question-heading">Do you have an account?</h2>
+              <button id="login-btn" type="button" aria-controls="login-form">Yes</button>
+              <button id="register-btn" type="button" aria-controls="register-form">No</button>
+              <form id="account-answer-form" aria-labelledby="account-question-heading" novalidate>
+                <label for="account-answer">Your answer (y, yes, n, or no)</label>
+                <input id="account-answer" name="answer" type="text" aria-describedby="account-answer-feedback" required />
+                <button type="submit">Continue</button>
+                <p id="account-answer-feedback" role="alert"></p>
+              </form>
+            </div>
+            <p>Account creation and credential verification are unavailable until an authentication backend is configured.</p>
+            <form id="login-form" aria-labelledby="login-heading" hidden novalidate>
+              <h2 id="login-heading">Welcome back, please Log in</h2>
+              <label for="login-username">Username</label>
+              <input id="login-username" name="username" type="text" autocomplete="username" aria-describedby="login-feedback" required />
+              <label for="login-password">Password</label>
+              <input id="login-password" name="password" type="password" autocomplete="current-password" aria-describedby="login-feedback" required />
+              <button type="submit">Log in</button>
+              <button type="button" data-account-back>Back to account question</button>
+              <p id="login-feedback" role="alert"></p>
             </form>
-          </div>
-          <p>Account creation and credential verification are unavailable until an authentication backend is configured.</p>
-          <form id="login-form" aria-labelledby="login-heading" hidden novalidate>
-            <h2 id="login-heading">Welcome back, please Log in</h2>
-            <label for="login-username">Username</label>
-            <input id="login-username" name="username" type="text" autocomplete="username" aria-describedby="login-feedback" required />
-            <label for="login-password">Password</label>
-            <input id="login-password" name="password" type="password" autocomplete="current-password" aria-describedby="login-feedback" required />
-            <button type="submit">Log in</button>
-            <button type="button" data-account-back>Back to account question</button>
-            <p id="login-feedback" role="alert"></p>
-          </form>
-          <form id="register-form" aria-labelledby="register-heading" hidden novalidate>
-            <h2 id="register-heading">Welcome! Please Register</h2>
-            <label for="register-username">Username</label>
-            <input id="register-username" name="username" type="text" autocomplete="username" aria-describedby="register-feedback" required />
-            <label for="register-password">Password</label>
-            <input id="register-password" name="password" type="password" autocomplete="new-password" aria-describedby="register-feedback" required />
-            <button type="submit">Register</button>
-            <button type="button" data-account-back>Back to account question</button>
-            <p id="register-feedback" role="alert"></p>
-          </form>
-        </section>
-        <p id="bell-out">Bell:</p>
-        <label for="user-in">Talk to Bell</label>
-        <input id="user-in" type="text" placeholder="Talk to Bell" disabled />
+            <form id="register-form" aria-labelledby="register-heading" hidden novalidate>
+              <h2 id="register-heading">Welcome! Please Register</h2>
+              <label for="register-username">Username</label>
+              <input id="register-username" name="username" type="text" autocomplete="username" aria-describedby="register-feedback" required />
+              <label for="register-password">Password</label>
+              <input id="register-password" name="password" type="password" autocomplete="new-password" aria-describedby="register-feedback" required />
+              <button type="submit">Register</button>
+              <button type="button" data-account-back>Back to account question</button>
+              <p id="register-feedback" role="alert"></p>
+            </form>
+          </section>
+          <p id="bell-out">Bell:</p>
+          <label for="user-in">Talk to Bell</label>
+          <input id="user-in" type="text" placeholder="Talk to Bell" disabled />
+        </div>
       </section>
     </main>
   </body>
