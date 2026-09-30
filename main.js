@@ -7,6 +7,7 @@ const accountAnswerFeedback = document.getElementById("account-answer-feedback")
 const loginForm = document.getElementById("login-form");
 const registerForm = document.getElementById("register-form");
 const accountForms = [loginForm, registerForm];
+const user_in = "user-in-div";
 let lastChoice = loginButton;
 
 function resetForms() {
@@ -105,9 +106,6 @@ accountForms.forEach((form) => {
       : "Account creation is unavailable: no authentication backend is configured. No account has been created.";
   });
 });
-function toggleVisibility(element) {
-  const  = document.getElementById(element);
-  
  function toggleVisibility(elementId) {
   const group = document.getElementById(elementId);
   if (!group) return;
@@ -116,4 +114,6 @@ function toggleVisibility(element) {
   } else {
     group.style.display = 'none';  // Hide group
   }
-}ty(user_in)
+}
+toggleVisibility(user_in);
+
