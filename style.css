@@ -61,23 +61,23 @@ body {
   align-items: center;
   text-align: center;
 }
-
-input{
+textarea,
+input[type="text"]{
 min-width: 0;
   max-width: 100%;
-  cursor: pointer;
+  cursor: text;
   white-space: nowrap;
-  appearence: none;
-  -webkit-appearence: none;
+  appearance: none;
+  -webkit-appearance: none;
   color: var(--color-text);
   background-color: #41a1fa;
   border: 1px solid #ffffff;
   transition: background-color 0.3s ease;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-md);
   border-radius: 10px;
 }
+
 select,
-textarea,
 button,
 input[type="submit"],
 input[type="button"]{
@@ -85,14 +85,14 @@ input[type="button"]{
   max-width: 100%;
   cursor: pointer;
   white-space: nowrap;
-  appearence: none;
-  -webkit-appearence: none;
+  appearance: none;
+  -webkit-appearance: none;
   color: var(--color-text);
   background-color: #41a1fa;
   border: 1px solid #ffffff;
   transition: background-color 0.3s ease;
   gap: var(--spacing-sm);
-  border-radius: 10px;
+  border-radius: 7px;
 }
 
 .section-header {
