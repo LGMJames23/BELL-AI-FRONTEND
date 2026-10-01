@@ -111,6 +111,11 @@ const cityOptions = [
   { name: "Perth, Australia", latitude: -31.9505, longitude: 115.8605, timeZone: "Australia/Perth" },
   { name: "Johannesburg, South Africa", latitude: -26.2041, longitude: 28.0473, timeZone: "Africa/Johannesburg" }
 ];
+cityOptions.forEach(city => {
+  const optionElem = document.createElement('option');
+  optionElement.value = city.toLowerCase();
+  optionElement.textContent = fruit;
+  citySelect.appendChild(optionElement);
 let activeLocation = cityOptions[0];
 let clockTimer = null;
 const locationSelect = document.getElementById  
