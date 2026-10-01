@@ -67,7 +67,10 @@ input[type="button"]{
   min-width: 0;
   max-width: 100%;
   cursor: pointer;
-  white-space
+  white-space: nowrap;
+  appearence: none;
+  -webkit-appearence: none;
+  color: var(--color-text);
   background-color: #41a1fa;
   border: 1px solid #ffffff;
   transition: background-color 0.3s ease;
@@ -81,6 +84,8 @@ input[type="button"]{
 .section-body {
   flex: 1; /* Expand to fill remaining vertical space */
 }
-.button:hover{
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover{
 background-color: #0504aa;
 }
