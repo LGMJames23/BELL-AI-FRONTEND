@@ -12,8 +12,15 @@
       <section id="main-section" class="app-container">
         <aside class="sidebar-panel section-card" id="sidebar">
           <h2>SETTINGS, HISTORY, AND INFO</h2>
-          <p>Time: XX:XX</p>
+          <section id="time" class="element-container"
+          <p>Time: XX:XX:XX</p>
+          <p>Date: XX/XX/XXXX</p>
+          </section>
+          <section id="weather" class="element-container"
           <p>Weather: XX°</p>
+            <image id="weather-icon"></image>
+          </section>
+          
         </aside>
         <div class="section-card">
           <header id="top-sctn">
@@ -36,7 +43,7 @@
               </form>
             </div>
               <form id="login-form" aria-labelledby="login-heading" hidden novalidate>
-              <h2 id="login-heading">>Bell: Welcome back, please Log in</h2>
+              <p id="login-heading">>Bell: Welcome back, please Log in</p>
               <label for="login-username">Username</label>
               <input id="login-username" name="username" type="text" autocomplete="username" aria-describedby="login-feedback" required />
               <label for="login-password">Password</label>
@@ -46,18 +53,18 @@
               <p id="login-feedback" role="alert"></p>
             </form>
             <form id="register-form" aria-labelledby="register-heading" hidden novalidate>
-              <h2 id="register-heading">Welcome! Please Register</h2>
+              <p id="register-heading">>Bell: Welcome! Please Register</p>
               <label for="register-username">Username</label>
               <input id="register-username" name="username" type="text" autocomplete="username" aria-describedby="register-feedback" required />
               <label for="register-password">Password</label>
               <input id="register-password" name="password" type="password" autocomplete="new-password" aria-describedby="register-feedback" required />
               <button type="submit" class="sbmt">Register</button>
-              <button type="button" data-account-back>Back to account question</button>
+              <button type="button" data-account-back>Nevermind</button>
               <p id="register-feedback" role="alert"></p>
             </form>
           </section>
           <div id="user-in-div" class="text-box">
-          <h2 id="bell-out">Bell:</h2>
+          <p id="bell-out">Bell:</p>
           <label for="user-in">Talk to Bell</label>
           <input id="user-in" type="text" placeholder="Talk to Bell" disabled />
           </div>
