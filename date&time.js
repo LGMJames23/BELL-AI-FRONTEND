@@ -9,9 +9,9 @@ const cityOptions = [
   { name: "Sydney, Australia", latitude: -33.8688, longitude: 151.2093, timeZone: "Australia/Sydney" },
   { name: "Sao Paulo, Brazil", latitude: -23.5505, longitude: -46.6333, timeZone: "America/Sao_Paulo" },
   { name: "Toronto, Canada", latitude: 43.6532, longitude: -79.3832, timeZone: "America/Toronto" },
-  { name: "Cape Town, South Africa", latitude: -33.9249, longitude: 18.4241, timeZone: "Africa/Johannesburg" }
-  {name: "Shanghai, China", latitude: 31.2243, longitude: 121.4692, timeZone: "Asia/Shanghai"}
-{ name: "Delhi, India", latitude: 28.6139, longitude: 77.209, timeZone: "Asia/Kolkata" },
+  { name: "Cape Town, South Africa", latitude: -33.9249, longitude: 18.4241, timeZone: "Africa/Johannesburg" },
+  {name: "Shanghai, China", latitude: 31.2243, longitude: 121.4692, timeZone: "Asia/Shanghai"},
+  { name: "Delhi, India", latitude: 28.6139, longitude: 77.209, timeZone: "Asia/Kolkata" },
   { name: "Dhaka, Bangladesh", latitude: 23.8103, longitude: 90.4125, timeZone: "Asia/Dhaka" },
   { name: "Cairo, Egypt", latitude: 30.0444, longitude: 31.2357, timeZone: "Africa/Cairo" },
   { name: "Mumbai, India", latitude: 19.076, longitude: 72.8777, timeZone: "Asia/Kolkata" },
@@ -116,3 +116,130 @@ const locationSelect
 const useMyLocationBtn
 const timeLbl
 const weatherLbl
+function populateLocationSelect() {
+  if (!locationSelect) return;
+  cityOptions.forEach((city, idx) => {
+    const option = document.createElement("option");
+    option.value = String(idx);
+    option.textContent = city.name;
+    locationSelect.appendChild(option);
+  });
+}
+function formatClock(date, timeZone) {
+  const time = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true
+  }).format(date);
+  const day = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }).format(date);
+  return { time, day };
+  function weatherTextFromCode(code) {
+  const weatherCodes = {
+    0: "Clear",
+    1: "Mostly Clear",
+    2: "Partly Cloudy",
+    3: "Overcast",
+    45: "Foggy",
+    48: "Foggy",
+    51: "Light Drizzle",
+    53: "Drizzle",
+    55: "Heavy Drizzle",
+    61: "Light Rain",
+    63: "Rain",
+    65: "Heavy Rain",
+    71: "Light Snow",
+    73: "Snow",
+    75: "Heavy Snow",
+    80: "Rain Showers",
+    81: "Rain Showers",
+    82: "Heavy Rain Showers",
+    95: "Thunderstorm"
+  };
+  return weatherCodes[code] || "Unknown";
+}
+  async function updateWeather(location) {
+  const weatherUrl =
+    `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}` +
+    `&longitude=${location.longitude}&current=temperature_2m,weather_code&timezone=auto`;
+  if (weatherLbl) weatherLbl.textContent = "Weather: Loading...";
+  try {
+    const response = await fetch(weatherUrl);
+    if (!response.ok) throw new Error("Weather request failed");
+    const data = await response.json();
+    const tempC = data.current?.temperature_2m;
+    const code = data.current?.weather_code;
+    const weather = weatherTextFromCode(code);
+    if (typeof tempC === "number") {
+      const tempF = (tempC * 9) / 5 + 32;
+      if (weatherLbl) {
+        weatherLbl.textContent =
+          `Weather: ${weather}, ${tempF.toFixed(1)}°F (${tempC.toFixed(1)}°C)`;
+      }
+    } else {
+      if (weatherLbl) weatherLbl.textContent = `Weather: ${weather}`;
+    }
+  } catch (_err) {
+    if (weatherLbl) weatherLbl.textContent = "Weather: Unable to load right now";
+  }
+
+    function startClock(location) {
+  if (clockTimer) clearInterval(clockTimer);
+  const tick = () => {
+    const now = new Date();
+    const formatted = formatClock(now, location.timeZone);
+    if (timeLbl) homeTimeLabel.textContent = `Time: ${formatted.time}`;
+    if (dateLbl) homeDateLabel.textContent = `Date: ${formatted.day}`;
+    updateGreeting(location.timeZone);
+  function updateGreeting(timeZone) {
+  if (!homeGreetingLabel) return;
+  const dateParts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    hour: "numeric",
+    hour12: false
+  }).formatToParts(new Date());
+  const hourPart = dateParts.find((part) => part.type === "hour");
+  const hour = Number(hourPart?.value ?? "12");
+}
+
+  tick();
+  clockTimer = setInterval(tick, 1000);
+}
+function setActiveLocation(location) {
+  if (!location) return;
+  activeLocation = location;
+  if (homeLocationLabel) homeLocationLabel.textContent = `Location: ${location.name}`;
+  startClock(location);
+  updateWeather(location);
+}
+
+async function useCurrentLocation() {
+  if (!navigator.geolocation) {
+    if (weatherLbl) weatherLbl.textContent = "Weather: Geolocation is not supported on this browser";
+    return;
+  }
+  if (homeLocationLabel) homeLocationLabel.textContent = "Location: Getting your location...";
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+      const { latitude, longitude } = position.coords;
+      const location = {
+        name: `Your Location (${latitude.toFixed(2)}, ${longitude.toFixed(2)})`,
+        latitude,
+        longitude,
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC"
+      };
+      setActiveLocation(location);
+ () => {
+      if (homeLocationLabel) homeLocationLabel.textContent = "Location: Permission denied or unavailable";
+      setActiveLocation(activeLocation);
+    },
+    { enableHighAccuracy: true, timeout: 10000 }
+  );
+}
