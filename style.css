@@ -38,6 +38,8 @@ body {
   gap: var(--spacing-md);
   margin: 0 auto;
   padding: var(--spacing-md);
+  text-align: center;
+  align-items: center;
 }
 
 .app-container > * {
@@ -56,6 +58,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  align-items: center
+  text-align: center
 }
 
 input,
