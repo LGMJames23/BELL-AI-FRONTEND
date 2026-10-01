@@ -1,3 +1,4 @@
+const citySelect = document.getElementById("citySlct");
 const cityOptions = [
   { name: "New York, USA", latitude: 40.7128, longitude: -74.006, timeZone: "America/New_York" },
   { name: "Los Angeles, USA", latitude: 34.0522, longitude: -118.2437, timeZone: "America/Los_Angeles" },
@@ -112,7 +113,7 @@ const cityOptions = [
 ];
 let activeLocation = cityOptions[0];
 let clockTimer = null;
-const locationSelect
+const locationSelect = document.getElementById  
 const useMyLocationBtn
 const timeLbl
 const weatherLbl
