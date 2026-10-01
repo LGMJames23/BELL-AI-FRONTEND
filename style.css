@@ -23,7 +23,6 @@
 
 body {
   margin: 0;
-  gap: 20px;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
@@ -79,6 +78,7 @@ input[type="button"]{
   background-color: #41a1fa;
   border: 1px solid #ffffff;
   transition: background-color 0.3s ease;
+  gap: var(--spacing-sm)
 }
 
 .section-header {
