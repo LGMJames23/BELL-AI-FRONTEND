@@ -16,9 +16,19 @@
           <section id="city-sec">
             <p id="citylabel">City: </p>
             <p id="cityLbl"> </p>
-            <select id="citySlct">
+            <div id="myLocationSection">
+            <p id="myLocationLabel">Use My Location: </p>
+            <label id="location-switch" class="switch">
+  <input class="switch__input" type="checkbox" role="switch">
+  <svg class="switch__check" viewBox="0 0 16 16" width="16px" height="16px">
+    <polyline class="switch__check-line" fill="none" stroke="hsl(var(--hue),10%,50%)" stroke-dasharray="9 9" stroke-dashoffset="3.01" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="5,8 11,8 11,11" />
+  </svg>
+  <span class="switch__sr">Power</span>
+</label>
+              <select id="citySlct">    
               <option value="">-SELECT A CITY-</option>
             </select>
+              </div>
           </section>
         <script type="module" src="date&time.js"></script>
             <section id="time-sec">
