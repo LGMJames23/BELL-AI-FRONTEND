@@ -248,5 +248,6 @@ async function useCurrentLocation() {
       setActiveLocation(activeLocation);
     },
     { enableHighAccuracy: true, timeout: 10000 }
-  );
+
 }
+);
