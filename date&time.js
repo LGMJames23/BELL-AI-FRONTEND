@@ -170,8 +170,11 @@ function formatClock(date, timeZone) {
     82: "Heavy Rain Showers",
     95: "Thunderstorm"
   };
+    
   return weatherCodes[code] || "Unknown";
 }
+    
+    }
   async function updateWeather(location) {
   const weatherUrl =
     `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}` +
