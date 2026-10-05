@@ -111,6 +111,7 @@ const cityOptions = [
   { name: "Perth, Australia", latitude: -31.9505, longitude: 115.8605, timeZone: "Australia/Perth" },
   { name: "Johannesburg, South Africa", latitude: -26.2041, longitude: 28.0473, timeZone: "Africa/Johannesburg" }
 ];
+let currentWeatherCode = 0;
 cityOptions.forEach(city => {
   const optionElem = document.createElement('option');
   optionElement.value = city.toLowerCase();
@@ -187,6 +188,37 @@ function formatClock(date, timeZone) {
     const tempC = data.current?.temperature_2m;
     const code = data.current?.weather_code;
     const weather = weatherTextFromCode(code);
+    const weatherIcn = document.getElementById("weather-icon");
+    if (code == 0){
+      weatherIcn.src = "https://www.flaticon.com/free-icon/sun_1163662?related_id=1163662&origin=pack";
+    } else if(code > 0 && code < 2)
+      weatherIcn.src = "https://www.flaticon.com/free-icon/cloudy_1163661?related_id=1163661&origin=pack";
+        } else if(code > 2 && code < 4){
+  weatherIcn.src = "https://www.flaticon.com/free-icon/cloudy_1163660?related_id=1163660&origin=pack";
+  } else if(code >= 4 && code <= 48){
+weatherIcn.src = "https://www.flaticon.com/free-icon/cloud_1163726?related_id=1163726";
+  } else if (code > 48 && code < 52){
+weatherIcn.src = "https://www.flaticon.com/free-icon/foog_1163640?related_id=1163640&origin=pack";
+  }
+    else if(code >= 52 && code < 53)
+      weatherIcn.src = "https://www.flaticon.com/free-icon/cloudy_1163759?related_id=1163759";
+        else if(code >= 53 && code < 55){
+weatherIcn.src = "https://www.flaticon.com/free-icon/rainy_1163626?related_id=1163626&origin=pack";
+      } else if(code >= 55 && code <61){
+weatherIcn.src = "https://www.flaticon.com/free-icon/rainy_1163728?related_id=1163728";
+      } else if(code == 62){
+weatherIcn.src = "https://www.flaticon.com/free-icon/night_1163746?related_id=1163746";
+      } else if(code > 62 && code < 65){
+weatherIcn.src = "https://www.flaticon.com/free-icon/drop_1163753?related_id=1163753";
+      } else if(code >= 65 && code < 71){
+weatherIcn.src = "https://www.flaticon.com/free-icon/rainy_1163729?related_id=1163729";
+      } else if(code >= 71 && code < 75){
+weatherIcn.src = "https://www.flaticon.com/free-icon/snowy_1163737?related_id=1163737";
+      }else if(code = 82){ //NOT CORRECT FIX IMMEDIATELY
+weatherIcn.src = "https://www.flaticon.com/free-icon/snowy_1163584?related_id=1163584";
+      } else {
+      weatherIcn.src = "";
+      }
     if (typeof tempC === "number") {
       const tempF = (tempC * 9) / 5 + 32;
       if (weatherLbl) {
