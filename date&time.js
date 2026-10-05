@@ -122,7 +122,7 @@ let usingLocation = document.getElementById("location-switch");
 const locationSelect = document.getElementById("citySlct");
 const timeLbl = document.getElementById("timeLbl");
 const cityLabel = document.getElementById("cityLabel");
-const weatherLbl = 
+const weatherLbl = document.getElementById("weatherLbl");
 function populateLocationSelect() {
   if (!locationSelect) return;
   cityOptions.forEach((city, idx) => {
