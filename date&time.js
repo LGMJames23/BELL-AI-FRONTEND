@@ -118,10 +118,11 @@ cityOptions.forEach(city => {
   citySelect.appendChild(optionElement);
 let activeLocation = cityOptions[0];
 let clockTimer = null;
-const locationSelect = document.getElementById  
-const useMyLocationBtn
-const timeLbl
-const weatherLbl
+let usingLocation = document.getElementById("location-switch");
+const locationSelect = document.getElementById("citySlct");
+const timeLbl = document.getElementById("timeLbl");
+const cityLabel = document.getElementById("cityLabel");
+const weatherLbl = document.getElementById("weatherLbl");
 function populateLocationSelect() {
   if (!locationSelect) return;
   cityOptions.forEach((city, idx) => {
@@ -247,5 +248,6 @@ async function useCurrentLocation() {
       setActiveLocation(activeLocation);
     },
     { enableHighAccuracy: true, timeout: 10000 }
-  );
+
 }
+);
