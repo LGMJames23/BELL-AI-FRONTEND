@@ -20,10 +20,4 @@ const splashTxtOptions = [
 ];
 splashBtn.addEventListener('click', pickSplashText);
 function pickSplashText(){ 
-let index = math.Floor(math.Random() * splashTxtOptions.length);
-  if (index MOD == 1){
-  splashTxt = splashTxtOptions[index];
-  } else {
-    location.reload();
-  };
-splashLbl.textContent = splashTxt;
+let index = Math.floor(Math.random() * splashTxtOptions.length);
