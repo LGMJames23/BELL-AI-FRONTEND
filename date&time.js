@@ -115,7 +115,7 @@ let currentWeatherCode = 0;
 cityOptions.forEach(city => {
   const optionElem = document.createElement('option');
   optionElement.value = city.toLowerCase();
-  optionElement.textContent = fruit;
+  optionElement.textContent = city;
   citySelect.appendChild(optionElement);
 let activeLocation = cityOptions[0];
 let clockTimer = null;
@@ -190,36 +190,37 @@ function formatClock(date, timeZone) {
     const weather = weatherTextFromCode(code);
     const weatherIcn = document.getElementById("weather-icon");
     if (code == 0){
-      weatherIcn.src = "https://www.flaticon.com/free-icon/sun_1163662?related_id=1163662&origin=pack";
-    } else if(code > 0 && code < 2)
-      weatherIcn.src = "https://www.flaticon.com/free-icon/cloudy_1163661?related_id=1163661&origin=pack";
+      weatherIcn.src = "";
+    } else if(code > 0 && code < 2){
+      weatherIcn.src = "";
         } else if(code > 2 && code < 4){
-  weatherIcn.src = "https://www.flaticon.com/free-icon/cloudy_1163660?related_id=1163660&origin=pack";
+  weatherIcn.src = "";
   } else if(code >= 4 && code <= 48){
-weatherIcn.src = "https://www.flaticon.com/free-icon/cloud_1163726?related_id=1163726";
+weatherIcn.src = "";
   } else if (code > 48 && code < 52){
-weatherIcn.src = "https://www.flaticon.com/free-icon/foog_1163640?related_id=1163640&origin=pack";
+weatherIcn.src = "";
   }
-    else if(code >= 52 && code < 53)
-      weatherIcn.src = "https://www.flaticon.com/free-icon/cloudy_1163759?related_id=1163759";
+    else if(code >= 52 && code < 53){
+      weatherIcn.src = "";
+    }
         else if(code >= 53 && code < 55){
-weatherIcn.src = "https://www.flaticon.com/free-icon/rainy_1163626?related_id=1163626&origin=pack";
+weatherIcn.src = "";
       } else if(code >= 55 && code <61){
-weatherIcn.src = "https://www.flaticon.com/free-icon/rainy_1163728?related_id=1163728";
+weatherIcn.src = "";
       } else if(code == 62){
-weatherIcn.src = "https://www.flaticon.com/free-icon/night_1163746?related_id=1163746";
+weatherIcn.src = "";
       } else if(code > 62 && code < 65){
-weatherIcn.src = "https://www.flaticon.com/free-icon/drop_1163753?related_id=1163753";
+weatherIcn.src = "";
       } else if(code >= 65 && code < 71){
-weatherIcn.src = "https://www.flaticon.com/free-icon/rainy_1163729?related_id=1163729";
+weatherIcn.src = "";
       } else if(code >= 71 && code < 75){
-weatherIcn.src = "https://www.flaticon.com/free-icon/snowy_1163737?related_id=1163737";
+weatherIcn.src = "";
       }else if(code >= 75 && code < 80){ 
-weatherIcn.src = "https://www.flaticon.com/free-icon/snowy_1163584?related_id=1163584";
+weatherIcn.src = "";
       } else if(code >= 80 && code < 95){
-weatherIcn.src = "https://www.flaticon.com/free-icon/storm_1163636?related_id=1163636&origin=pack";
+weatherIcn.src = "";
         } else if(code >=95){
-          weatherIcn.src = "Thunderstorms: https://www.flaticon.com/free-icon/rainy_1163729?related_id=1163729";
+          weatherIcn.src = "";
         } else {
           weatherIcn.src = "https://img.magnific.com/free-vector/loading-circles-blue-gradient_78370-2646.jpg?semt=ais_hybrid&w=740&q=80";
         }
