@@ -21,3 +21,5 @@ const splashTxtOptions = [
 splashBtn.addEventListener('click', pickSplashText);
 function pickSplashText(){ 
 let index = Math.floor(Math.random() * splashTxtOptions.length);
+splashLbl.textContent = splashTxt;
+}
