@@ -112,4 +112,5 @@ background-color: #0504aa;
 }
 #splash-txt {
 font-family: 'Press Start 2P', cursive, sans-serif;
+-webkit-text-stroke: 3px #000000;
 }
