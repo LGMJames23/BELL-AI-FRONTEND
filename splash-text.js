@@ -20,7 +20,7 @@ const splashTxtOptions = [
 ];
 splashBtn.addEventListener('click', pickSplashText);
 function pickSplashText(){
-math.Floor(math.Random(), * splashTxtOptions.length);
+math.Floor(math.Random() * splashTxtOptions.length);
   splashTxt = splashTxtOptions[index];
 };
 splashLbl.textContext = splashTxt;
