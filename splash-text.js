@@ -14,12 +14,12 @@ const splashTxtOptions = [
   "Do you ever wonder what Slurp Juice tastes like?",
   "I CAN SEE YOU.",
   "Minecraft did this better.",
-  "Do people read these?",
+  "Do people actually read these?",
   "Not trying to take over the world.",
   "Fun Fact: Lil Baby is actually an adult.",
   "Thank you! Thank you! Thank you! Thank you!",
   "What do you think you're looking at?",
-  "Don't eat bathroom bread",
+  "Don't eat bathroom bread.",
   "Making this website made me question my life choices.",
   "Beware of Small Cats."
 ];
