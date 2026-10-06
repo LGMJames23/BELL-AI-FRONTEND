@@ -1,5 +1,5 @@
-const splashLbl = document.getElementById("splash-label");
-const splashBtn = document.getElementById("splash-btn");
+const splashLbl = document.getElementById("splash-txt");
+const splashBtn = document.getElementById("splash-txt-btn");
 let splashTxt = "";
 const splashTxtOptions = [
   "I made this in School.",
