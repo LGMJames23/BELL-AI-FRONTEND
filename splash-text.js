@@ -16,10 +16,11 @@ const splashTxtOptions = [
   "Minecraft did this better.",
   "Do people read these?",
   "Not trying to take over the world.",
-  "Lil Baby is actually an adult."
+  "Fun Fact: Lil Baby is actually an adult."
 ];
 splashBtn.addEventListener('click', pickSplashText);
 function pickSplashText(){ 
 let index = Math.floor(Math.random() * splashTxtOptions.length);
+  splashTxt = splashTxtOptions[index];
 splashLbl.textContent = splashTxt;
 }
