@@ -110,3 +110,6 @@ input[type="submit"]:hover,
 input[type="button"]:hover{
 background-color: #0504aa;
 }
+#splash-txt {
+font-family: 'Press Start 2P', cursive, sans-serif;
+}
