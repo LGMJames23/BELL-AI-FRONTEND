@@ -24,3 +24,4 @@ let index = Math.floor(Math.random() * splashTxtOptions.length);
   splashTxt = splashTxtOptions[index];
 splashLbl.textContent = splashTxt;
 }
+pickSplashText();
