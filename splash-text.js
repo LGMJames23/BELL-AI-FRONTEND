@@ -3,7 +3,7 @@ const splashBtn = document.getElementById("splash-txt-btn");
 let splashTxt = "";
 const splashTxtOptions = [
   "I made this in School.",
-  "NEWS: Teenage Pregnancy shown to decrease around age 25.",
+  "BREAKING NEWS: Teenage Pregnancy shown to decrease around age 25.",
   "Be careful, I bite.",
   "ARIBA!!!",
   "To infinity and LeBron!",
