@@ -19,8 +19,8 @@ const splashTxtOptions = [
   "Lil Baby is actually an adult."
 ];
 splashBtn.addEventListener('click', pickSplashText);
-function pickSplashText(){
-math.Floor(math.Random() * splashTxtOptions.length);
+function pickSplashText(){ 
+let index = math.Floor(math.Random() * splashTxtOptions.length);
   splashTxt = splashTxtOptions[index];
 };
-splashLbl.textContext = splashTxt;
+splashLbl.textContent = splashTxt;
