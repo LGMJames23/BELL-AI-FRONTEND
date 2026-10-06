@@ -111,10 +111,11 @@ const cityOptions = [
   { name: "Perth, Australia", latitude: -31.9505, longitude: 115.8605, timeZone: "Australia/Perth" },
   { name: "Johannesburg, South Africa", latitude: -26.2041, longitude: 28.0473, timeZone: "Africa/Johannesburg" }
 ];
+let currentWeatherCode = 0;
 cityOptions.forEach(city => {
   const optionElem = document.createElement('option');
   optionElement.value = city.toLowerCase();
-  optionElement.textContent = fruit;
+  optionElement.textContent = city;
   citySelect.appendChild(optionElement);
 let activeLocation = cityOptions[0];
 let clockTimer = null;
@@ -170,8 +171,11 @@ function formatClock(date, timeZone) {
     82: "Heavy Rain Showers",
     95: "Thunderstorm"
   };
+    
   return weatherCodes[code] || "Unknown";
 }
+    
+    
   async function updateWeather(location) {
   const weatherUrl =
     `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}` +
@@ -184,7 +188,43 @@ function formatClock(date, timeZone) {
     const tempC = data.current?.temperature_2m;
     const code = data.current?.weather_code;
     const weather = weatherTextFromCode(code);
-    if (typeof tempC === "number") {
+    const weatherIcn = document.getElementById("weather-icon");
+    if (code == 0){
+      weatherIcn.src = "";
+    } else if(code > 0 && code < 2){
+      weatherIcn.src = "";
+        } else if(code > 2 && code < 4){
+  weatherIcn.src = "";
+  } else if(code >= 4 && code <= 48){
+weatherIcn.src = "";
+  } else if (code > 48 && code < 52){
+weatherIcn.src = "";
+  }
+    else if(code >= 52 && code < 53){
+      weatherIcn.src = "";
+    }
+        else if(code >= 53 && code < 55){
+weatherIcn.src = "";
+      } else if(code >= 55 && code <61){
+weatherIcn.src = "";
+      } else if(code == 62){
+weatherIcn.src = "";
+      } else if(code > 62 && code < 65){
+weatherIcn.src = "";
+      } else if(code >= 65 && code < 71){
+weatherIcn.src = "";
+      } else if(code >= 71 && code < 75){
+weatherIcn.src = "";
+      }else if(code >= 75 && code < 80){ 
+weatherIcn.src = "";
+      } else if(code >= 80 && code < 95){
+weatherIcn.src = "";
+        } else if(code >=95){
+          weatherIcn.src = "";
+        } else {
+          weatherIcn.src = "https://img.magnific.com/free-vector/loading-circles-blue-gradient_78370-2646.jpg?semt=ais_hybrid&w=740&q=80";
+        }
+          if (typeof tempC === "number") {
       const tempF = (tempC * 9) / 5 + 32;
       if (weatherLbl) {
         weatherLbl.textContent =
