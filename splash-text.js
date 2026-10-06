@@ -10,13 +10,18 @@ const splashTxtOptions = [
   "Ostriches have larger eyes than brains.",
   "Try to hum while closing your nostrils!",
   "Sharks existed before trees.",
-  "Australia is wider than the Moon",
+  "Australia is wider than the Moon.",
   "Do you ever wonder what Slurp Juice tastes like?",
   "I CAN SEE YOU.",
   "Minecraft did this better.",
   "Do people read these?",
   "Not trying to take over the world.",
-  "Fun Fact: Lil Baby is actually an adult."
+  "Fun Fact: Lil Baby is actually an adult.",
+  "Thank you! Thank you! Thank you! Thank you!",
+  "What do you think you're looking at?",
+  "Don't eat bathroom bread",
+  "Making this website made me question my life choices.",
+  "Beware of Small Cats."
 ];
 splashBtn.addEventListener('click', pickSplashText);
 function pickSplashText(){ 
