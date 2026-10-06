@@ -175,7 +175,7 @@ function formatClock(date, timeZone) {
   return weatherCodes[code] || "Unknown";
 }
     
-    }
+    
   async function updateWeather(location) {
   const weatherUrl =
     `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}` +
