@@ -124,8 +124,10 @@ font-family: 'Press Start 2P', cursive, sans-serif;
   gap: var(spacing-md);
 }
 #myLocationBtn {
-  width: 20px;
-  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 20%
+  max-width: 20%
 }
 #main {
 
