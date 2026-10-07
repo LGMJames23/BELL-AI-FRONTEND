@@ -115,11 +115,14 @@ font-family: 'Press Start 2P', cursive, sans-serif;
 -webkit-text-stroke: 1px #000000;
 }
 #top-sctn {
-  margin-bottom: --spacing-lg;
-  margin-right: --spacing-md;
+  margin-bottom: var(--spacing-lg);
+  margin-right: var(--spacing-md);
   text-align: center;
 }
 #bell-chat{
   text-align: justify;
-  gap: spacing-md;
+  gap: var(spacing-md);
 }
+#myLocationBtn {
+  width: 20px;
+  height: 20px;
