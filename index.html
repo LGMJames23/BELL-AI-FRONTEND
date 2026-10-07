@@ -49,26 +49,26 @@
           </header>
           <div id="bell-chat">
           <section id="welcome-section" aria-label="Welcome">
-            <p id="welcome-text"><strong>Welcome!</strong></p>
-            <p>>Bell: Hi I'm Bell, your own AI assistant</p>
+            <p id="welcome-text" class="bell-out"><strong>Welcome!</strong></p>
+            <p class="bell-out">>Bell: Hi I'm Bell, your own AI assistant</p>
           </section>
           <section id="login-sctn" aria-label="Account access">
             <div id="account-question">
-              <p id="account-question-heading">>Bell: Do you have an account?</p>
+              <p id="account-question-heading" class="bell-out">>Bell: Do you have an account?</p>
               <button id="login-btn" type="button" aria-controls="login-form">Yes</button>
               <button id="register-btn" type="button" aria-controls="register-form">No</button>
               <form id="account-answer-form"aria-labelledby="account-question-heading" novalidate>
-                <label for="account-answer">>Talk to Bell</label>
-                <input id="account-answer" name="answer" type="text" aria-describedby="account-answer-feedback" required />
+                <label for="account-answer" class="user-in">>Talk to Bell</label>
+                <input id="account-answer" name="answer" type="text" class="user-in" aria-describedby="account-answer-feedback" required />
                 <button type="submit" class="sbmt">Continue</button>
                 <p id="account-answer-feedback" role="alert"></p>
               </form>
             </div>
               <form id="login-form" aria-labelledby="login-heading" hidden novalidate>
-              <p id="login-heading">>Bell: Welcome back, please Log in</p>
-              <label for="login-username">Username</label>
+              <p id="login-heading" class="bell-out">>Bell: Welcome back, please Log in</p>
+              <label for="login-username">Username: </label>
               <input id="login-username" name="username" type="text" autocomplete="username" aria-describedby="login-feedback" required />
-              <label for="login-password">Password</label>
+              <label for="login-password">Password: </label>
               <input id="login-password" name="password" type="password" autocomplete="current-password" aria-describedby="login-feedback" required />
               <button type="submit"class=sbmt>Log in</button>
               <button type="button" data-account-back>Back to account question</button>
