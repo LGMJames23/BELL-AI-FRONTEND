@@ -114,3 +114,12 @@ background-color: #0504aa;
 font-family: 'Press Start 2P', cursive, sans-serif;
 -webkit-text-stroke: 1px #000000;
 }
+#top-sctn {
+  margin-bottom: --spacing-lg;
+  margin-right: --spacing-md;
+  text-align: center;
+}
+#bell-chat{
+  text-align: justify;
+  gap: spacing-md;
+}
