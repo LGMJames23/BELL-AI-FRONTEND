@@ -1,119 +1,140 @@
-const accountQuestion = document.getElementById("account-question");
-const loginButton = document.getElementById("login-btn");
-const registerButton = document.getElementById("register-btn");
-const accountAnswerForm = document.getElementById("account-answer-form");
-const accountAnswer = document.getElementById("account-answer");
-const accountAnswerFeedback = document.getElementById("account-answer-feedback");
-const loginForm = document.getElementById("login-form");
-const registerForm = document.getElementById("register-form");
-const accountForms = [loginForm, registerForm];
-const user_in = "user-in-div";
-let lastChoice = loginButton;
+/* styles/base/variables.css */
+:root {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-primary: #3d9160;
+  --color-text: #ffffff;
+  --color-text-muted: #ffffff;
 
-function resetForms() {
-  accountForms.forEach((form) => {
-    form.hidden = true;
-    form.reset();
-    form.querySelector('[role="alert"]').textContent = "";
-    form.querySelectorAll("input").forEach((input) => {
-      input.removeAttribute("aria-invalid");
-    });
-  });
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  
+  --spacing-sm: 0.5rem;   /* 8px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --radius-md: 0.5rem;
 }
 
-function showForm(form, choice) {
-  resetForms();
-  accountAnswerForm.reset();
-  accountAnswerFeedback.textContent = "";
-  accountAnswer.removeAttribute("aria-invalid");
-  lastChoice = choice;
-  accountQuestion.hidden = true;
-  form.hidden = false;
-  form.elements.namedItem("username").focus();
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-loginButton.addEventListener("click", () => {
-  showForm(loginForm, loginButton);
-});
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  overflow-wrap: anywhere;
+}
 
-registerButton.addEventListener("click", () => {
-  showForm(registerForm, registerButton);
-});
+.app-container {
+  display: grid; /* creates grid */
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  gap: var(--spacing-md);
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  text-align: center;
+  align-items: center;
+}
 
-accountAnswerForm.addEventListener("input", () => {
-  accountAnswerFeedback.textContent = "";
-  accountAnswer.removeAttribute("aria-invalid");
-});
+.app-container > * {
+  min-width: 0;
+}
 
-accountAnswerForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const answer = accountAnswer.value.trim().toLowerCase();
-
-  if (answer === "y" || answer === "yes") {
-    showForm(loginForm, accountAnswer);
-  } else if (answer === "n" || answer === "no") {
-    showForm(registerForm, accountAnswer);
-  } else {
-    accountAnswer.setAttribute("aria-invalid", "true");
-    accountAnswerFeedback.textContent = "Please answer y or yes for login, or n or no for registration.";
-    accountAnswer.focus();
-  }
-});
-
-document.querySelectorAll("[data-account-back]").forEach((button) => {
-  button.addEventListener("click", () => {
-    resetForms();
-    accountQuestion.hidden = false;
-    lastChoice.focus();
-  });
-});
-
-accountForms.forEach((form) => {
-  const username = form.elements.namedItem("username");
-  const password = form.elements.namedItem("password");
-  const feedback = form.querySelector('[role="alert"]');
-
-  form.addEventListener("input", () => {
-    feedback.textContent = "";
-    [username, password].forEach((input) => {
-      input.removeAttribute("aria-invalid");
-    });
-  });
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const missingUsername = username.value.trim() === "";
-    const missingPassword = password.value === "";
-
-    username.setAttribute("aria-invalid", String(missingUsername));
-    password.setAttribute("aria-invalid", String(missingPassword));
-
-    if (missingUsername || missingPassword) {
-      if (missingUsername && missingPassword) {
-        feedback.textContent = "Please enter a username and password.";
-      } else {
-        feedback.textContent = missingUsername
-          ? "Please enter a username."
-          : "Please enter a password.";
-      }
-      (missingUsername ? username : password).focus();
-      return;
-    }
-
-    password.value = "";
-    feedback.textContent = form === loginForm
-      ? "Credential verification is unavailable: no authentication backend is configured. You are not logged in."
-      : "Account creation is unavailable: no authentication backend is configured. No account has been created.";
-  });
-});
- function toggleVisibility(elementId) {
-  const group = document.getElementById(elementId);
-  if (!group) return;
-  if (group.style.display === 'none') {
-    group.style.display = 'block'; // Show group
-  } else {
-    group.style.display = 'none';  // Hide group
+@media (max-width: 1024px) {
+  .app-container {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
-toggleVisibility(user_in);
+.section-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: center;
+  text-align: center;
+}
+textarea,
+input,
+input[type="text"]{
+min-width: 0;
+  max-width: 100%;
+  cursor: text;
+  white-space: nowrap;
+  appearance: none;
+  -webkit-appearance: none;
+  color: var(--color-text);
+  background-color: #47596b;
+  border: 1px solid #ffffff;
+  transition: background-color 0.3s ease;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md);
+  border-radius: 10px;
+}
 
+select,
+button,
+input[type="submit"],
+input[type="button"]{
+  min-width: 0;
+  max-width: 100%;
+  cursor: pointer;
+  white-space: nowrap;
+  appearance: none;
+  -webkit-appearance: none;
+  color: var(--color-text);
+  background-color: #41a1fa;
+  border: 1px solid #ffffff;
+  transition: background-color 0.3s ease;
+  gap: var(--spacing-sm);
+  border-radius: 7px;
+}
+
+#citySlct,
+#citySlct option {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.section-header {
+  border-bottom: 2px solid var(--color-text-muted);
+  padding-bottom: var(--spacing-sm);
+}
+
+.section-body {
+  flex: 1; /* Expand to fill remaining vertical space */
+}
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover{
+ background-color: #0504aa;
+}
+#splash-txt {
+ font-family: 'Press Start 2P', cursive, sans-serif;
+ -webkit-text-stroke: 1px #000000;
+}
+#top-sctn {
+  margin-bottom: var(--spacing-lg);
+  margin-right: var(--spacing-md);
+  text-align: center;
+}
+#bell-chat{
+  text-align: justify;
+  gap: var(spacing-md);
+}
+#myLocationBtn {
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 20%
+  max-width: 20%
+}
+#main {
+
+}
