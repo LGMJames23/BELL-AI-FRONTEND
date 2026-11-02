@@ -98,9 +98,11 @@ input[type="button"]{
 }
 
 #citySlct,
-#citySlct option {
-  color: #000000;
-  background-color: #ffffff;
+#citySlct option,
+select,
+select option {
+  color: #111827;
+  background-color: #f8fafc;
 }
 
 .section-header {

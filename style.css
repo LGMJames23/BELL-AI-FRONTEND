@@ -123,12 +123,13 @@ function convertWeatherToFahrenheit() {
   const weatherLabel = document.getElementById("weatherLbl");
   if (!weatherLabel) return;
 
-  const match = weatherLabel.textContent.match(/-?\d+(?:\.\d+)?/);
+  const text = weatherLabel.textContent;
+  const match = text.match(/-?\d+(?:\.\d+)?/);
   if (!match) return;
 
   const tempC = Number(match[0]);
   const tempF = Math.round((tempC * 9) / 5 + 32);
-  weatherLabel.textContent = weatherLabel.textContent.replace(match[0], `${tempF}°F`);
+  weatherLabel.textContent = text.replace(match[0], `${tempF}°F`);
 }
 
 const weatherLabel = document.getElementById("weatherLbl");
@@ -144,9 +145,7 @@ if (weatherLabel) {
 
 const citySelect = document.getElementById("citySlct");
 if (citySelect) {
-  citySelect.style.color = "#000000";
-  citySelect.style.backgroundColor = "#ffffff";
+  citySelect.style.color = "#111827";
+  citySelect.style.backgroundColor = "#f8fafc";
 }
-
-
 
